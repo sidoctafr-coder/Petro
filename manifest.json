@@ -3,13 +3,13 @@
   "name": "Petro",
   "icons": [
     {
-      "src": "Logo-Petro-192.png",
+      "src": "logo-arrondi.png",
       "type": "image/png",
       "sizes": "192x192",
       "purpose": "any maskable"
     },
     {
-      "src": "Logo-Petro.jpg",
+      "src": "logo-arrondi.png",
       "type": "image/png",
       "sizes": "512x512"
     }

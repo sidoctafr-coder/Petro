@@ -3,13 +3,13 @@
   "name": "Petro",
   "icons": [
     {
-      "src": "new_logo.jpg",
+      "src": "new_logo.png",
       "type": "image/png",
       "sizes": "192x192",
       "purpose": "any"
     },
     {
-      "src": "new_logo.jpg",
+      "src": "new_logo.png",
       "type": "image/png",
       "sizes": "512x512",
       "purpose": "any"

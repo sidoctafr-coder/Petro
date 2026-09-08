@@ -3,20 +3,20 @@
   "name": "Petro",
   "icons": [
     {
-      "src": "new_logo.png",
+      "src": "Logo-Petro-192.png",
       "type": "image/png",
       "sizes": "192x192",
-      "purpose": "any"
+      "purpose": "any maskable"
     },
     {
-      "src": "new_logo.png",
+      "src": "Logo-Petro.jpg",
       "type": "image/png",
-      "sizes": "512x512",
-      "purpose": "any"
+      "sizes": "512x512"
     }
   ],
   "start_url": "index.html",
   "background_color": "#0F1710",
   "theme_color": "#121b15",
-  "display": "standalone"
+  "display": "standalone",
+  "orientation": "any"
 }

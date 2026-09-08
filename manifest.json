@@ -1,0 +1,21 @@
+{
+  "short_name": "Petro",
+  "name": "Petro",
+  "icons": [
+    {
+      "src": "Logo-Petro-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "Logo-Petro.jpg",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "index.html",
+  "background_color": "#1e1e1e",
+  "theme_color": "#0d6efd",
+  "display": "standalone",
+  "orientation": "any"
+}

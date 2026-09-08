@@ -1,0 +1,151 @@
+
+ /* Importation des polices en local */
+ @font-face {
+   font-family: 'JetBrains Mono';
+   src: url('fonts/webfonts/JetBrainsMono-Regular.woff2') format('woff2');
+   font-weight: 400;
+   font-style: normal;
+   font-display: swap;
+ }
+
+ @font-face {
+   font-family: 'Rajdhani';
+   src: url('Rajdhani/Rajdhani-Regular.ttf') format('truetype');
+   font-weight: 400;
+   font-style: normal;
+   font-display: swap;
+ }
+
+ /* 2. Déclaration de Rajdhani Bold (pour les grands titres) */
+ @font-face {
+   font-family: 'Rajdhani';
+   src: url('Rajdhani/Rajdhani-Bold.ttf') format('truetype');
+   font-weight: 700;
+   font-style: normal;
+   font-display: swap;
+ }
+
+ /* Déclaration de tous les éléments à utiliser dans l'application */
+ :root {
+   --bg-color: #0F1710;
+   --coleur-daccentuation: #D1E9DA;
+   --bg-carte: #121b15;
+   --bordure-carte: #233625;
+   --card-border: rgba(120, 232, 168, 0.20);
+   --couleur-barre: #5EE6A0;
+   --couleur-barre-gras: #34d17a;
+   --icone-bg: #e7ece9;
+   --icone-text: #10150f;
+   --bordure: 14px;
+   --text: #eef2ef;
+   --police: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', 'Cascadia Code',
+     Consolas, 'Courier New', monospace;
+ }
+
+ body {
+   background: var(--bg-color);
+   color: var(--text);
+   margin: 0;
+   padding: 20px;
+   min-height: 100vh;
+   padding-bottom: 2rem;
+ }
+
+ .titre {
+   font-size: 1.1rem;
+   font-family: 'Arial Narrow', sans-serif !important;
+   font-weight: 700;
+   text-transform: uppercase;
+   letter-spacing: 1px;
+ }
+
+ .accentuation {
+   color: var(--coleur-daccentuation);
+ }
+
+ .header-subtitle {
+   font-family: var(--police);
+ }
+
+ .dot-vert {
+   width: 8.5px;
+   height: 8.5px;
+   background-color: #38a169;
+   border-radius: 50%;
+   display: inline-block;
+   box-shadow: 0 0 8px #38a169;
+   animation: clignoter 1.8s infinite ease-in-out;
+ }
+
+ /* Animation de clignotement*/
+ @keyframes clignoter {
+   0% {
+     opacity: 1;
+   }
+   50% {
+     opacity: 0.3;
+   }
+   100% {
+     opacity: 1;
+   }
+ }
+
+ .barre {
+   margin: 12px 0 20px 0;
+   height: 3.5px;
+   margin-top: .9rem;
+   border-radius: 1.4px;
+   background: linear-gradient(90deg, var(--couleur-barre) 0%, var(--couleur-barre-gras) 45%, transparent 100%);
+ }
+
+ .footer {
+   display: flex;
+   justify-content: space-between;
+   flex-wrap: wrap;
+   font-family: 'JetBrains Mono';
+   /* passe à la ligne si l'écran est trop étroit */
+   gap: 8px;
+   border-top: 1px solid #2f4a3a;
+   padding-top: 12px;
+   font-size: 13px;
+   color: #8fa79a;
+ }
+
+
+
+
+ /* Pour écrans pc */
+ @media (max-width: 700px) {
+  
+   .status-text{
+    font-size: clamp(0.8rem, 2.5vw, 1.5rem);
+  }
+
+   .titre {
+     font-size: 16px;
+   }
+
+   .saut {
+     height: 5px !important;
+   }
+
+   .footer {
+     font-size: 11px !important;
+   }
+ }
+ @media (max-width: 425px){
+  .dot-vert{
+    height: 8px!important;
+    width: 12px !important;
+  }
+ }
+ @media (max-width: 500px){
+  .dot-vert{
+    height: 8px!important;
+    width: 10px !important;
+  }
+ }
+h2{
+  font-family: 
+   sans-serif;
+}

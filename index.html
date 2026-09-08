@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- Lien vers le manifest PWA -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0d6efd">
+  <link rel="stylesheet" href="index.css">
+  <script src="xlsx.full.min.js"></script>
+  <script src="dexie.js"></script>
+  <script src="chart.umd.js"></script>
+</head>
+
+<body>
+  <a href="index_graphes.html">hey</a>
+  <header>
+    <div style="display: grid;  grid-template-columns: repeat(2, 1fr);">
+      <span style="text-align: left;" class="accentuation titre">SOUFFLEUSE</span>
+      <span style="text-align: right;" class="titre">Tableau <span class="accentuation titre">de</span> bord</span>
+    </div>
+
+    <div class="header-subtitle" style="display: grid; grid-template-columns: repeat(2, 1fr);">
+      <!-- Le point vert clignotant + le texte -->
+      <div style="text-align: left; display: flex; align-items: center; gap: 5px;">
+        <span class="dot-vert" style="margin-top: 1.5px;"></span>
+        <span class="status-text">PET G12 · Chaîne 12 · En ligne</span>
+      </div>
+
+      <!-- L'heure dynamique -->
+      <div class="horloge" id="horloge-live" style="text-align: right;">00:00:00</div>
+    </div>
+  </header>
+
+  <div class="barre"></div>
+
+  <main>
+    <!-- Section Bento complexe en haut -->
+    <div class="section-bento">
+      <div class="boite boite-a">
+        <div class="icone">i</div>
+        <span class="blocA">Informations sur l'appareil:</span>
+        <div class="saut"></div>
+        <span class="texte-blocA">Souffleuse PET G12</span>
+        <ul class="liste-blocA">
+          <div style="height: 12px;"></div>
+          <li>Constructeur : <span>Krones</span></li>
+          <div style="height: 12px;"></div>
+          <li>Modèle : <span>Souffleuse PET G12</span></li>
+          <div style="height: 12px;"></div>
+          <li>Site : <span>SABC — Koumassi</span></li>
+          <div style="height: 12px;"></div>
+          <li>N° de série : <span>K126B69</span></li>
+          <div style="height: 12px;"></div>
+          <li>Utilisateurs : <span>03725723 - pet12</span></li>
+          <div style="height: 12px;"></div>
+          <li>Dernière sauvegarde : <span>08-31-2026 <span style="color: #D1E9DA;">à</span> 10:36:39</span></li>
+          <div style="height: 12px;"></div>
+          <li>
+            <details class="sub">
+              <summary><span style="border-bottom: 1.7px dashed #5b856b; color: #D1E9DA;">Versions système (HMI / PLC)</span>:</summary>
+              <div class="sub-grid">
+                <div style="margin-top: 4px;"><span>BAS :</span>  3.02.14 / PLC</div>
+                <div><span>MMA :</span> 3.02.80_SE201705 / PLC</div>
+                <div><span>FVC :</span> 3.41.0 BAS>=3.00 / 2.87.0-P3585</div>
+                <div><span>SDC :</span> V6.05.2 / SDCm2.5.9</div>
+                <div><span>BCM :</span> 2.1.2 / PLC</div>
+              </div>
+            </details>
+          </li>
+        </ul>
+      </div>
+
+
+      <div class="boite boite-b">
+        <div style="display: flex; justify-content: space-between;">
+          <span>🚨Alarmes</span>
+          <span>[ En cours ]</span>
+        </div>
+        <br>
+        <!-- barre d'alarme -->
+        <div class="alarme-barre">
+          <div class="barre-segment segment-defaut" id="barre-defaut" style="width: 0%"></div>
+          <div class="barre-segment segment-avertissement" id="barre-avertissement" style="width: 0%"></div>
+          <div class="barre-segment segment-indication" id="barre-indication" style="width: 0%"></div>
+        </div>
+        <br>
+        <!-- 2. La bande avec les libellés et valeurs -->
+        <div class="legende-alarme-barre" style="display: flex; justify-content: space-between;">
+          <span class="legend-item legende-defaut">Défauts (<span id="txt-count-defaut">0</span>)</span>
+          <span class="legend-item legende-avertissement">Avertissements (<span
+              id="txt-count-avertissement">0</span>)</span>
+          <span class="legend-item legend-indication">Indications (<span id="txt-count-indication">0</span>)</span>
+        </div>
+      </div>
+
+
+      <div class="boite boite-c">
+        <div>
+          <!-- Le contenu de la boîte dans un seul bloc -->
+          <div class="bloc1">MISE A JOUR</div>
+          <br>
+          <div class="bloc2">
+            <span>SYSTEME</span>
+            <input type="file" id="inputExcel" accept=".xml" hidden>
+            <button id="btnMAJ">MAJ</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Grande boîte simple en bas -->
+    <div class="boite boite-d">
+      <div class="bloc-messages-actifs">
+        <h2>⚠️ Messages Actifs (<span id="compteur-actifs">0</span>)</h2>
+
+        <div class="table-responsive">
+          <table class="tableau-krones">
+            <thead>
+              <tr>
+                <th style="border-top-left-radius: 3px; border-bottom-left-radius: 3px">Type</th>
+                <th>Heure d'arrivée</th>
+                <th>Module</th>
+                <th>N°</th>
+                <th>Description du problème</th>
+                <th style="border-top-right-radius: 3px; border-bottom-right-radius: 3px">Références de logiciel</th>
+              </tr>
+            </thead>
+            <tbody id="tbody-messages-actifs">
+              <tr>
+                <td colspan="6" class="texte-vide">Aucun fichier chargé ou aucun message actif.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    </div>
+  </main>
+  <br>
+  <br>
+
+  <footer>
+    <div class="footer">
+      <span>Krones-Souffleuse PET G12</span>
+      <span>SABC</span>
+      <span>sidoctafr@gmail.com</span>
+    </div>
+  </footer>
+
+  <script src="index.js"></script>
+<script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('service_worker.js')
+            .then(reg => console.log('PWA Service Worker enregistré avec succès !', reg))
+            .catch(err => console.error('Échec enregistrement PWA :', err));
+        });
+      }
+    </script>
+</body>
+
+</html>

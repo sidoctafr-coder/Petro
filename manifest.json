@@ -3,13 +3,13 @@
   "name": "Petro",
   "icons": [
     {
-      "src": "Logo-Petro-192.png",
+      "src": "new_logo.jpg",
       "type": "image/png",
       "sizes": "192x192",
-      "purpose": "any maskable"
+      "purpose": "any"
     },
     {
-      "src": "Logo-Petro.jpg",
+      "src": "new_logo.jpg",
       "type": "image/png",
       "sizes": "512x512"
     }
@@ -18,5 +18,4 @@
   "background_color": "#0F1710",
   "theme_color": "#121b15",
   "display": "standalone",
-  "orientation": "any"
 }

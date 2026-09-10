@@ -104,7 +104,7 @@
  }
 
  .tableau-historique { 
-   min-height: 100px;
+   min-height: 100vh;
    font-weight: bold;
    color: var(--text);
  }
@@ -128,7 +128,6 @@
 
  .table-responsive {
    overflow-x: auto;
-   max-height: 350px;
    scrollbar-width: none;
  }
 

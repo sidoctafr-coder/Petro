@@ -496,7 +496,6 @@ details summary::-webkit-details-marker {
 
  .table-responsive {
    overflow-x: auto;
-   max-height: 350px;
    scrollbar-width: none;
  }
 

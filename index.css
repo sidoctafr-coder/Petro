@@ -400,8 +400,9 @@ details summary::-webkit-details-marker {
      /* Reset de l'extension */
      min-height: 100px;
    }
+  
    .liste-blocA li{
-    font-size: clamp(0.5rem, 2cqw, 0.7rem) !important;
+    font-size: clamp(0.8rem, 1.4cqw, 2rem) !important;
    }
    .boite-b,.boite-c {
      grid-row: 2;
@@ -414,7 +415,7 @@ details summary::-webkit-details-marker {
      min-height: 120px;
    }
  }
-
+ 
  /* Pour écrans pc */
  @media (max-width: 700px) {
    .section-bento {
@@ -480,11 +481,6 @@ details summary::-webkit-details-marker {
   }
  }
 
-@media (min-width: 836px) and (max-width:962px){
-  .liste-blocA, summary{
-    font-size: clamp(0.75rem, 2cqw, 1.0rem); 
-  }
-}
 
 
 

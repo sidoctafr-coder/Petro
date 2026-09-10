@@ -159,8 +159,7 @@ html,body{
 
  .blocA {
    color: var(--couleur-barre-gras);
-   font-size: 1.04rem;
-
+  font-size: clamp(1rem, 1.6cqw, 2.5rem);   
    font-family: 'JetBrains Mono', monospace;
  }
 
@@ -168,8 +167,8 @@ html,body{
    font-family: 'JetBrains Mono', monospace;
    font-style: italic;
    font-weight: 400;
-   font-size: 16px;
-   word-spacing: 1px;
+  font-size: clamp(1rem, 1.5cqw, 2.5rem);   
+  word-spacing: 1px;
    letter-spacing: 0.5px;
  }
 .sub {
@@ -361,7 +360,17 @@ details summary::-webkit-details-marker {
    height: max-content;
  }
 
-
+@media (min-width: 600px) and (max-width:900){
+  .texte-bloc{
+    font-size: 0.8rem !important;   
+  } 
+  .blocA{
+    font-size: 0.9rem!important;
+  }
+  .liste-blocA{
+    font-size: 1rem!important;
+  }
+}
 
  /* Configuration pour petits écrans (Mobile / Tablette portrait) */
 
@@ -372,7 +381,7 @@ details summary::-webkit-details-marker {
      grid-row: 1;
      min-height: 100px;
    }
-
+   
    .boite-b,.boite-c {
      grid-row: 2;
      grid-column: span 1;
@@ -390,7 +399,7 @@ details summary::-webkit-details-marker {
   and (orientation: landscape) 
   and (pointer: coarse) 
   and (min-width: 200px) 
-  and (max-width: 1020px) 
+  and (max-width: 1000px) 
   and (max-height: 1024px){
 
    .boite-a {
@@ -400,10 +409,7 @@ details summary::-webkit-details-marker {
      /* Reset de l'extension */
      min-height: 100px;
    }
-  
-   .liste-blocA li{
-    font-size: clamp(0.8rem, 1.4cqw, 2rem) !important;
-   }
+ 
    .boite-b,.boite-c {
      grid-row: 2;
      grid-column: span 1;
@@ -414,9 +420,18 @@ details summary::-webkit-details-marker {
      grid-row: 3;
      min-height: 120px;
    }
+    .texte-blocA{
+    font-size: 0.79rem !important;   
+  } 
+  .blocA{
+    font-size: 0.8rem !important;
+  }
+  .liste-blocA{
+    font-size: 0.85rem !important;
+  }
  }
  
- /* Pour écrans pc */
+ 
  @media (max-width: 700px) {
    .section-bento {
      display: grid;

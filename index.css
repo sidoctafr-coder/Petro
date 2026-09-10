@@ -40,7 +40,58 @@
    --police: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', 'Cascadia Code',
      Consolas, 'Courier New', monospace;
  }
+/* Container de l'écran de chargement */
+#app-splash {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--bg-color, #0F1710);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+  opacity: 1;
+  transition: opacity 0.5s ease-out, visibility 0.5s;
+}
 
+/* Animation douce sur le logo (effet de respiration) */
+.splash-logo {
+  width: 90px;
+  height: 90px;
+  animation: pulse 1.8s infinite ease-in-out;
+}
+
+/* Spinner discret aux couleurs de votre thème */
+.splash-loader {
+  margin: 20px auto 0;
+  width: 28px;
+  height: 28px;
+  border: 3px solid var(--bordure-carte, #233625);
+  border-top: 3px solid var(--couleur-barre, #5EE6A0);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+/* Masquage de l'écran */
+#app-splash.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Animations */
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.08); opacity: 1; }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+/*  */
  body {
    background: var(--bg-color);
    color: var(--text);

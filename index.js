@@ -1,3 +1,13 @@
+window.addEventListener('DOMContentLoaded', () => {
+  // Masque l'écran de splash avec un petit délai pour une sensation de fluidité
+  setTimeout(() => {
+    const splash = document.getElementById('app-splash');
+    if (splash) {
+      splash.classList.add('hidden');
+    }
+  }, 400); // 400ms permet d'attendre la mise en page initiale
+});
+
 // Initialisation de la base de données IndexedDB via Dexie
 const db = new Dexie("SouffleuseDiagnosticDB");
 

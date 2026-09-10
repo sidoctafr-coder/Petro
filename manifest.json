@@ -3,13 +3,13 @@
   "name": "Petro",
   "icons": [
     {
-      "src": "Logo-Petro-192.png",
+      "src": "Logo-Petro-192px.png",
       "type": "image/png",
       "sizes": "192x192",
       "purpose": "any maskable"
     },
     {
-      "src": "Logo-Petro.jpg",
+      "src": "Logo-Petro-512px.jpg",
       "type": "image/png",
       "sizes": "512x512"
     }

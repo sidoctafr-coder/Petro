@@ -421,13 +421,13 @@ details summary::-webkit-details-marker {
      min-height: 120px;
    }
     .texte-blocA{
-    font-size: 0.79rem !important;   
+    font-size: 1rem !important;   
   } 
   .blocA{
-    font-size: 0.8rem !important;
+    font-size: 1.1rem !important;
   }
   .liste-blocA{
-    font-size: 0.85rem !important;
+    font-size: 0.9rem !important;
   }
  }
  

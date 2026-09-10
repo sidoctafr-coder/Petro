@@ -1,11 +1,22 @@
 window.addEventListener('DOMContentLoaded', () => {
-  // Masque l'écran de splash avec un petit délai pour une sensation de fluidité
-  setTimeout(() => {
-    const splash = document.getElementById('app-splash');
+  const splash = document.getElementById('app-splash');
+  
+  // Vérifie si le splash a déjà été affiché durant cette session
+  if (sessionStorage.getItem('splashShown')) {
+    // Si oui, on masque immédiatement l'écran de splash sans animation
     if (splash) {
-      splash.classList.add('hidden');
+      splash.style.display = 'none';
     }
-  }, 400); // 400ms permet d'attendre la mise en page initiale
+  } else {
+    // Si c'est le tout premier démarrage de l'app
+    setTimeout(() => {
+      if (splash) {
+        splash.classList.add('hidden');
+        // Marque le splash comme "déjà affiché" pour toute la session
+        sessionStorage.setItem('splashShown', 'true');
+      }
+    }, 400);
+  }
 });
 
 // Initialisation de la base de données IndexedDB via Dexie

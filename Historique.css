@@ -153,6 +153,10 @@
    border-bottom: 1px solid #edf2f7;
  }
 
+ h2{
+  font-family: 
+   sans-serif;
+}
  
  .footer {
    display: flex;

@@ -98,7 +98,16 @@
   font-weight: bold;
   font-style: inherit;
 }
-/*  */
+/* Masquer la barre de défilement */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar{
+  display: none;
+}
+html,body{
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
  body {
    background: var(--bg-color);
    color: var(--text);
@@ -106,7 +115,6 @@
    padding: 20px;
    min-height: 100vh;
    padding-bottom: 2rem;
-   scrollbar-width: none;
    overflow-x: hidden;
  }
 

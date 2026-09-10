@@ -103,6 +103,62 @@
    background: linear-gradient(90deg, var(--couleur-barre) 0%, var(--couleur-barre-gras) 45%, transparent 100%);
  }
 
+ .boite {
+   padding: 15px;
+   min-height: 100px;
+   font-weight: bold;
+   background: var(--bg-carte);
+   border: 1.2px solid var(--bordure-carte);
+   border-radius: var(--bordure);
+   color: var(--text);
+   padding: 1.1rem 1.2rem 1.3rem;
+ }
+ 
+
+ /* Tableau messages actifs */
+ .bloc-messages-actifs {
+   border-radius: 8px;
+   padding: 16px;
+   margin-bottom: 10px;
+   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+ }
+
+ .bloc-messages-actifs h2 {
+   font-family: var(--police);
+   font-size: 1.1rem;
+   color: var(--couleur-barre-gras);
+   margin-top: 0;
+   margin-bottom: 12px;
+ }
+
+ .table-responsive {
+   overflow-x: auto;
+   max-height: 350px;
+   scrollbar-width: none;
+ }
+
+ .tableau-krones {
+   width: 100%;
+   border-collapse: collapse;
+   font-size: 0.85rem;
+   font-family: system-ui, -apple-system, sans-serif;
+ }
+
+ .tableau-krones th {
+   background-color: #f7fafc;
+   color: #4a5568;
+   padding: 8px 12px;
+   text-align: left;
+   position: sticky;
+   top: 0;
+ }
+
+ .tableau-krones td {
+   padding: 8px 12px;
+   border-bottom: 1px solid #edf2f7;
+ }
+
+ 
  .footer {
    display: flex;
    justify-content: space-between;
@@ -150,7 +206,4 @@
     width: 10px !important;
   }
  }
-h2{
-  font-family: 
-   sans-serif;
-}
+

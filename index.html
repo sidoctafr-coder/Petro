@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Petro-Data Analysis App</title>
   <!-- Lien vers le manifest PWA -->
-    <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#121b15">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#121b15">
   <link rel="stylesheet" href="index.css">
   <script src="xlsx.full.min.js"></script>
   <script src="dexie.js"></script>
@@ -15,19 +15,17 @@
 </head>
 
 <body>
-  <!-- Écran de splash / transition -->
-<div id="app-splash">
-  <div class="splash-content">
-    <img src="Logo-arrondi.png" alt="Logo" class="splash-logo">
-    <div class="splash-loader"></div>
+  <!-- Écran de splash et transition logo-->
+  <div id="app-splash">
+    <div class="splash-content">
+      <img src="Logo-arrondi.png" alt="Logo" class="splash-logo">
+      <div class="splash-loader"></div>
+    </div>
   </div>
-</div>
 
-
-  <a href="index_graphes.html">hey</a>
   <header>
     <div style="display: grid;  grid-template-columns: repeat(2, 1fr);">
-      <span style="text-align: left;" class="accentuation titre">SOUFFLEUSE</span>
+      <span style="text-align: left;" class="accentuation titre">SOUTIREUSE</span>
       <span style="text-align: right;" class="titre">Tableau <span class="accentuation titre">de</span> bord</span>
     </div>
 
@@ -35,7 +33,7 @@
       <!-- Le point vert clignotant + le texte -->
       <div style="text-align: left; display: flex; align-items: center; gap: 5px;">
         <span class="dot-vert" style="margin-top: 1.5px;"></span>
-        <span class="status-text">PET G12 · <a href="index_graphes.html">Analyse</a> · <a href="Historique"></a></span>
+        <span class="status-text">PET G12 · <a href="index_graphes.html" class="lien-page-suivante">ANALYSE</a> · <a href="Historique.html" class="lien-page-suivante">HISTORIQUE</a></span>
       </div>
 
       <!-- L'heure dynamique -->
@@ -52,12 +50,12 @@
         <div class="icone">i</div>
         <span class="blocA">Informations sur l'appareil:</span>
         <div class="saut"></div>
-        <span class="texte-blocA">Souffleuse PET G12</span>
+        <span class="texte-blocA">Soutireuse PET G12</span>
         <ul class="liste-blocA">
           <div style="height: 12px;"></div>
           <li>Constructeur : <span>Krones</span></li>
           <div style="height: 12px;"></div>
-          <li>Modèle : <span>Souffleuse PET G12</span></li>
+          <li>Modèle : <span>Soutireuse PET G12</span></li>
           <div style="height: 12px;"></div>
           <li>Site : <span>SABC — Koumassi</span></li>
           <div style="height: 12px;"></div>
@@ -69,9 +67,10 @@
           <div style="height: 12px;"></div>
           <li>
             <details class="sub">
-              <summary><span style="border-bottom: 1.7px dashed #5b856b; color: #D1E9DA;">Versions système (HMI / PLC)</span>:</summary>
+              <summary><span style="border-bottom: 1.7px dashed #5b856b; color: #D1E9DA;">Versions système (HMI /
+                  PLC)</span>:</summary>
               <div class="sub-grid">
-                <div style="margin-top: 4px;"><span>BAS :</span>  3.02.14 / PLC</div>
+                <div style="margin-top: 4px;"><span>BAS :</span> 3.02.14 / PLC</div>
                 <div><span>MMA :</span> 3.02.80_SE201705 / PLC</div>
                 <div><span>FVC :</span> 3.41.0 BAS>=3.00 / 2.87.0-P3585</div>
                 <div><span>SDC :</span> V6.05.2 / SDCm2.5.9</div>
@@ -155,22 +154,22 @@
 
   <footer>
     <div class="footer">
-      <span>Krones-Souffleuse PET G12</span>
+      <span>Krones-Soutireuse PET G12</span>
       <span>SABC</span>
       <span>sidoctafr@gmail.com</span>
     </div>
   </footer>
 
   <script src="index.js"></script>
-<script>
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('service_worker.js')
-            .then(reg => console.log('PWA Service Worker enregistré avec succès !', reg))
-            .catch(err => console.error('Échec enregistrement PWA :', err));
-        });
-      }
-    </script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('service_worker.js')
+          .then(reg => console.log('PWA Service Worker enregistré avec succès !', reg))
+          .catch(err => console.error('Échec enregistrement PWA :', err));
+      });
+    }
+  </script>
 </body>
 
 </html>

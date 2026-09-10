@@ -1,3 +1,4 @@
+// Diagramme de Pareto
 document.addEventListener('DOMContentLoaded', async () => {
     const ctx = document.getElementById('paretoChart');
     if (!ctx) {

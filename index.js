@@ -1,22 +1,23 @@
+// Transition de l'icone au démarrage
 window.addEventListener('DOMContentLoaded', () => {
-  const splash = document.getElementById('app-splash');
-  
-  // Vérifie si le splash a déjà été affiché durant cette session
-  if (sessionStorage.getItem('splashShown')) {
-    // Si oui, on masque immédiatement l'écran de splash sans animation
-    if (splash) {
-      splash.style.display = 'none';
+    const splash = document.getElementById('app-splash');
+
+    // Vérifie si le splash a déjà été affiché durant cette session
+    if (sessionStorage.getItem('splashShown')) {
+        // Si oui, on masque immédiatement l'écran de splash sans animation
+        if (splash) {
+            splash.style.display = 'none';
+        }
+    } else {
+        // Si c'est le tout premier démarrage de l'app
+        setTimeout(() => {
+            if (splash) {
+                splash.classList.add('hidden');
+                // Marque le splash comme "déjà affiché" pour toute la session
+                sessionStorage.setItem('splashShown', 'true');
+            }
+        }, 400);
     }
-  } else {
-    // Si c'est le tout premier démarrage de l'app
-    setTimeout(() => {
-      if (splash) {
-        splash.classList.add('hidden');
-        // Marque le splash comme "déjà affiché" pour toute la session
-        sessionStorage.setItem('splashShown', 'true');
-      }
-    }, 400);
-  }
 });
 
 // Initialisation de la base de données IndexedDB via Dexie
@@ -112,17 +113,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
 
                 // --- 3. SAUVEGARDE DANS INDEXEDDB VIA DEXIE ---
-        await db.transaction('rw', [db.alarmesActives, db.historiqueMessages], async () => {
-          // Vidage des anciennes données
-          await db.alarmesActives.clear();
-          await db.historiqueMessages.clear();
+                await db.transaction('rw', [db.alarmesActives, db.historiqueMessages], async () => {
+                    // Vidage des anciennes données
+                    await db.alarmesActives.clear();
+                    await db.historiqueMessages.clear();
 
-          // Insertion des nouveaux tableaux
-          await db.alarmesActives.bulkAdd(tableau_final);
-          await db.historiqueMessages.bulkAdd(tableauHistorique);
-        });
+                    // Insertion des nouveaux tableaux
+                    await db.alarmesActives.bulkAdd(tableau_final);
+                    await db.historiqueMessages.bulkAdd(tableauHistorique);
+                });
 
-        console.log("Données sauvegardées dans IndexedDB avec succès !");
+                console.log("Données sauvegardées dans IndexedDB avec succès !");
 
                 // Compteur de défauts
                 const compteur = document.getElementById('compteur-actifs');

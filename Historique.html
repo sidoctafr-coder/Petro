@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Petro-Data Analysis App</title>
+  <!-- Lien vers le manifest PWA -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#121b15">
+  <link rel="stylesheet" href="index.css">
+  <script src="xlsx.full.min.js"></script>
+  <script src="dexie.js"></script>
+  <script src="chart.umd.js"></script>
+</head>
+
+<body>
+  <!-- Écran de splash / transition -->
+  <div id="app-splash">
+    <div class="splash-content">
+      <img src="Logo-arrondi.png" alt="Logo" class="splash-logo">
+      <div class="splash-loader"></div>
+    </div>
+  </div>
+
+  <header>
+    <div style="display: grid;  grid-template-columns: repeat(2, 1fr);">
+      <span style="text-align: left;" class="accentuation titre">SOUTIREUSE</span>
+      <span style="text-align: right;" class="titre">Tableau <span class="accentuation titre">de</span> bord</span>
+    </div>
+
+    <div class="header-subtitle" style="display: grid; grid-template-columns: repeat(2, 1fr);">
+      <!-- Le point vert clignotant + le texte -->
+      <div style="text-align: left; display: flex; align-items: center; gap: 5px;">
+        <span class="dot-vert" style="margin-top: 1.5px;"></span>
+        <span class="status-text">PET G12 · <a href="index.html" class="lien-page-suivante">ACCUEIL</a>· <a
+            href="index_graphes.html" class="lien-page-suivante">ANALYSE</a></span>
+      </div>
+
+      <!-- L'heure dynamique -->
+      <div class="horloge" id="horloge-live" style="text-align: right;">00:00:00</div>
+    </div>
+  </header>
+
+  <div class="barre"></div>
+
+  <main>
+    <div class="boite boite-d">
+      <div class="bloc-messages-actifs">
+        <h2>Historique des messages(<span id="compteur">0</span>)</h2>
+        <div class="table-responsive">
+          <table class="tableau-krones">
+            <thead>
+              <tr>
+                <th style="border-top-left-radius: 3px; border-bottom-left-radius: 3px">Type</th>
+                <th>Heure d'arrivée</th>
+                <th>Module</th>
+                <th>N°</th>
+                <th>Description du problème</th>
+                <th style="border-top-right-radius: 3px; border-bottom-right-radius: 3px">Références de logiciel</th>
+              </tr>
+            </thead>
+            <tbody id="tbody-historiquemessages">
+              <tr>
+                <td colspan="6" class="texte-vide">Aucun fichier chargé ou aucun message actif.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+  <br>
+  <br>
+
+  <footer>
+    <div class="footer">
+      <span>Krones-Soutireuse PET G12</span>
+      <span>SABC</span>
+      <span>sidoctafr@gmail.com</span>
+    </div>
+  </footer>
+
+  <script src="index.js"></script>
+  <script src="Historique.js"></script>
+</body>
+
+</html>

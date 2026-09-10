@@ -427,10 +427,24 @@ details summary::-webkit-details-marker {
     font-size: 1.1rem !important;
   }
   .liste-blocA{
-    font-size: 0.9rem !important;
+    font-size: 1.1rem !important;
   }
  }
- 
+ @media screen 
+  and (orientation: landscape) 
+  and (pointer: coarse) 
+  and (max-width: 400px) 
+  and (max-height: 1024px){
+      .texte-blocA{
+    font-size: 0.8rem !important;   
+  } 
+  .blocA{
+    font-size: 0.7rem !important;
+  }
+  .liste-blocA{
+    font-size: 0.5rem !important;
+  }
+  }
  
  @media (max-width: 700px) {
    .section-bento {

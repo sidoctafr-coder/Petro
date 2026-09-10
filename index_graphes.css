@@ -49,6 +49,8 @@
    padding: 20px;
    min-height: 100vh;
    padding-bottom: 2rem;
+   scrollbar-width: none;
+   overflow-x: hidden;
  }
 .lien-page-suivante{
   color: inherit;
